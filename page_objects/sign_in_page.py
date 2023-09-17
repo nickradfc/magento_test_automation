@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from page_objects.base_page import BasePage
 
+
 class SignInPage(BasePage):
 
     SIGN_IN_FORM_HEADER = {
@@ -16,7 +17,7 @@ class SignInPage(BasePage):
     SIGN_IN_BUTTON = {
         "locator": (By.ID, "send2"),
     }
-    
+
     def assert_form_header(self):
         header = self.find_element(self.SIGN_IN_FORM_HEADER["locator"])
         assert header.text == self.SIGN_IN_FORM_HEADER["text"], f"Sign in form header text mismatch."
@@ -30,5 +31,5 @@ class SignInPage(BasePage):
         self.enter_text(self.PASSWORD_FIELD["locator"], password)
 
     def click_sign_in(self):
-        self.assert_element(self.SIGN_IN_BUTTON["locator"])        
+        self.assert_element(self.SIGN_IN_BUTTON["locator"])
         self.click(self.SIGN_IN_BUTTON["locator"])

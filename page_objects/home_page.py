@@ -32,9 +32,6 @@ class HomePage(BasePage):
         "text": "Jackets"
     }
 
-    
-
-
     def check_welcome_message(self):
         self.assert_element(self.WELCOME_MESSAGE["locator"])
         self.assert_text_in_element(
@@ -45,31 +42,28 @@ class HomePage(BasePage):
 
     def assert_my_account_btn_text(self):
         self.assert_element(self.MY_ACCOUNT_BUTTON["locator"])
-        self.assert_text_in_element(self.MY_ACCOUNT_BUTTON["locator"], self.MY_ACCOUNT_BUTTON["text"])
+        self.assert_text_in_element(
+            self.MY_ACCOUNT_BUTTON["locator"], self.MY_ACCOUNT_BUTTON["text"])
 
     def click_my_account_btn(self):
         self.assert_element(self.MY_ACCOUNT_BUTTON["locator"])
         self.click(self.MY_ACCOUNT_BUTTON["locator"])
-        
-    def select_women_category(self):    
+
+    def select_women_category(self):
         self.find_element(self.WOMEN_CATEGORY["locator"])
-        self.assert_text_in_element(self.WOMEN_CATEGORY["locator"], self.WOMEN_CATEGORY["text"])
+        self.assert_text_in_element(
+            self.WOMEN_CATEGORY["locator"], self.WOMEN_CATEGORY["text"])
         self.click(self.WOMEN_CATEGORY["locator"])
 
     def assert_category_page_title(self, category):
         self.find_element(self.CATEGORY_PAGE_TITLE["locator"])
         self.is_visible(self.CATEGORY_PAGE_TITLE["locator"])
-        self.assert_text_in_element(self.CATEGORY_PAGE_TITLE["locator"], category)
-        
+        self.assert_text_in_element(
+            self.CATEGORY_PAGE_TITLE["locator"], category)
 
     def select_jacket_category(self):
         # Jackets category has the same locator for women and men categories.
         self.find_element(self.JACKETS_CATEGORY["locator"])
-        self.assert_text_in_element(self.JACKETS_CATEGORY["locator"], self.JACKETS_CATEGORY["text"])
+        self.assert_text_in_element(
+            self.JACKETS_CATEGORY["locator"], self.JACKETS_CATEGORY["text"])
         self.click(self.JACKETS_CATEGORY["locator"])
-        
-    def assert_apparel_category_page_title(self, apparely_category):
-        pass
-        # self.find_element(self.CATEGORY_PAGE_TITLE["locator"])
-        # self.is_visible(self.CATEGORY_PAGE_TITLE["locator"])
-        # self.assert_text_in_element(self.CATEGORY_PAGE_TITLE["locator"], category)

@@ -5,7 +5,6 @@ from config import DEFAULT_WAIT_TIME
 from selenium import webdriver
 
 
-
 class BasePage:
 
     def __init__(self, driver):

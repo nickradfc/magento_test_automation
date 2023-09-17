@@ -15,10 +15,12 @@ class MainLandingPage(BasePage):
 
     def navigate_to_sign_in(self):
         self.assert_element(self.SIGN_IN_BUTTON["locator"])
-        self.assert_text_in_element(self.SIGN_IN_BUTTON["locator"], self.SIGN_IN_BUTTON["text"])
+        self.assert_text_in_element(
+            self.SIGN_IN_BUTTON["locator"], self.SIGN_IN_BUTTON["text"])
         self.click(self.SIGN_IN_BUTTON["locator"])
 
     def navigate_to_sign_up(self):
         self.assert_element(self.SIGN_UP_BUTTON["locator"])
-        self.assert_text_in_element(self.SIGN_UP_BUTTON["locator"], self.SIGN_UP_BUTTON["text"])
+        self.assert_text_in_element(
+            self.SIGN_UP_BUTTON["locator"], self.SIGN_UP_BUTTON["text"])
         self.click(self.SIGN_UP_BUTTON["locator"])
