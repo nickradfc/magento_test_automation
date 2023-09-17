@@ -24,9 +24,9 @@ def before_each(request, driver):
         driver.execute_script("localStorage.clear();")
     request.addfinalizer(clear_cookies_and_storage)
 
-# def test_sign_up(driver, before_each, sign_up_creds):
-#     navigate_to_sign_up(driver)
-#     sign_up(driver, sign_up_creds)
+def test_sign_up(driver, before_each, sign_up_creds):
+    navigate_to_sign_up(driver)
+    sign_up(driver, sign_up_creds)
 
 def test_sign_in_with_new_user(driver, before_each, sign_up_creds):
     navigate_to_sign_in(driver)
