@@ -2,6 +2,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from config import DEFAULT_WAIT_TIME
+from selenium import webdriver
+
 
 
 class BasePage:
@@ -25,9 +27,12 @@ class BasePage:
         )
         return element
 
-    def click(self, by_locator):
-        self.scroll_to_element(by_locator)
-        self.find_element(by_locator).click()
+    def click(self, by_locator, driver=None):
+        if isinstance(by_locator, webdriver.remote.webelement.WebElement) and driver:
+            by_locator.click()
+        else:
+            self.scroll_to_element(by_locator)
+            self.find_element(by_locator).click()
 
     def enter_text(self, by_locator, text):
         self.scroll_to_element(by_locator)

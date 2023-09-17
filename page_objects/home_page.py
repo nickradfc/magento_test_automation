@@ -18,6 +18,23 @@ class HomePage(BasePage):
         "text": "My Account"
     }
 
+    CATEGORY_PAGE_TITLE = {
+        "locator": (By.XPATH, '//*[@data-ui-id="page-title-wrapper"]'),
+    }
+
+    WOMEN_CATEGORY = {
+        "locator": (By.ID, "ui-id-4"),
+        "text": "Women"
+    }
+
+    JACKETS_CATEGORY = {
+        "locator": (By.XPATH, '//*[@id="maincontent"]/div[4]/div[2]/div[2]/div/ul[1]/li[2]/a'),
+        "text": "Jackets"
+    }
+
+    
+
+
     def check_welcome_message(self):
         self.assert_element(self.WELCOME_MESSAGE["locator"])
         self.assert_text_in_element(
@@ -34,5 +51,25 @@ class HomePage(BasePage):
         self.assert_element(self.MY_ACCOUNT_BUTTON["locator"])
         self.click(self.MY_ACCOUNT_BUTTON["locator"])
         
+    def select_women_category(self):    
+        self.find_element(self.WOMEN_CATEGORY["locator"])
+        self.assert_text_in_element(self.WOMEN_CATEGORY["locator"], self.WOMEN_CATEGORY["text"])
+        self.click(self.WOMEN_CATEGORY["locator"])
 
-        import pdb; pdb.set_trace()
+    def assert_category_page_title(self, category):
+        self.find_element(self.CATEGORY_PAGE_TITLE["locator"])
+        self.is_visible(self.CATEGORY_PAGE_TITLE["locator"])
+        self.assert_text_in_element(self.CATEGORY_PAGE_TITLE["locator"], category)
+        
+
+    def select_jacket_category(self):
+        # Jackets category has the same locator for women and men categories.
+        self.find_element(self.JACKETS_CATEGORY["locator"])
+        self.assert_text_in_element(self.JACKETS_CATEGORY["locator"], self.JACKETS_CATEGORY["text"])
+        self.click(self.JACKETS_CATEGORY["locator"])
+        
+    def assert_apparel_category_page_title(self, apparely_category):
+        pass
+        # self.find_element(self.CATEGORY_PAGE_TITLE["locator"])
+        # self.is_visible(self.CATEGORY_PAGE_TITLE["locator"])
+        # self.assert_text_in_element(self.CATEGORY_PAGE_TITLE["locator"], category)
