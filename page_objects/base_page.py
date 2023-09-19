@@ -49,8 +49,12 @@ class BasePage:
             self.find_element(by_locator).click()
 
     def enter_text(self, by_locator, text):
-        self.scroll_to_element(by_locator)
-        self.find_element(by_locator).send_keys(text)
+        if isinstance(by_locator, webdriver.remote.webelement.WebElement):
+            by_locator.send_keys(text)
+        else:
+            self.assert_element(by_locator)
+            self.scroll_to_element(by_locator)
+            self.find_element(by_locator).send_keys(text)
 
     def is_visible(self, by_locator):
         element = WebDriverWait(self.driver, self.default_wait_time).until(
