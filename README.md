@@ -11,6 +11,7 @@ This repository contains a test automation framework for automating interactions
 - [Prerequisites](#prerequisites)
 - [Local Setup](#local-setup)
 - [Running Tests Locally](#running-tests)
+- [View Report](#view-report)
 
 ## File System Structure
 
@@ -34,7 +35,7 @@ Before running the tests, make sure you have the following installed:
 1. Clone the repository:
 
    ```bash
-   git@github.com:nickradfc/magento_test_automation.git
+   git clone https://github.com/nickradfc/magento_test_automation.git
    cd magento_test_automation
 
 2. Create and activate virtual environment (optional but recommended):
@@ -59,3 +60,7 @@ You can run the tests locally using the following command with standard PyTest H
 
 You can run the tests locally using the following command without report:
     `pytest tests/`
+
+## View Report
+
+Standard PyTest Report can be accessed after test execution is completed. Open `report.html` file located in the root directory of the project 
