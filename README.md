@@ -3,7 +3,7 @@
 
 # Test Automation Framework
 
-This repository contains a test automation framework for automating interactions with a web application using Selenium, Python, and PyTest.
+This repository contains a test automation framework for automating interactions with a web application using Selenium, Python, and PyTest running on CHrome browser. Additional funcationality can be added for supporting different browser and differemt environments (outide of the scope of current project's state).
 
 ## Table of Contents
 
@@ -37,22 +37,27 @@ Before running the tests, make sure you have the following installed:
 
    ```bash
    git clone <repository-url>
-   cd <repository-folder>```
+   cd <repository-folder>
 
-2. Create a virtual environment (optional but recommended):
+2. Create and activate virtual environment (optional but recommended):
 
-    `python -m venv venv source venv/bin/activate`
+    `python3 -m venv venv`
+    `source venv/bin/activate`
 
-3. Install project dependencies:
+3. Install project dependencies and upgrade webdriver:
 
-    `pip install -r requirements.txt`
+    `pip3 install -r requirements.txt`
+    `python3 -m pip install webdriver-manager --upgrade`
 
-4. Set environment variables (if required) in a .env file in the project root (email example: test_email+storetest@gmail.com):
+4. Set environment variables in a .env file in the project root (email example: test_email+storetest@gmail.com):
 
     `BASE_EMAIL=your-username`
     `BASE_PASSWORD=your-password`
 
 ## Running Tests
 
-You can run the tests locally using the following command:
+You can run the tests locally using the following command with standard PyTest HTML Report:
+    `pytest --html=report.html`
+
+You can run the tests locally using the following command without report:
     `pytest tests/`
