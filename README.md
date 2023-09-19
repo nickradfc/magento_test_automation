@@ -10,9 +10,7 @@ This repository contains a test automation framework for automating interactions
 - [File System Structure](#file-system-structure)
 - [Prerequisites](#prerequisites)
 - [Local Setup](#local-setup)
-- [Running Tests](#running-tests)
-- [Docker Setup](#docker-setup)
-- [Contributing](#contributing)
+- [Running Tests Locally](#running-tests)
 
 ## File System Structure
 
@@ -36,8 +34,8 @@ Before running the tests, make sure you have the following installed:
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
-   cd <repository-folder>
+   git@github.com:nickradfc/magento_test_automation.git
+   cd magento_test_automation
 
 2. Create and activate virtual environment (optional but recommended):
 
@@ -54,7 +52,7 @@ Before running the tests, make sure you have the following installed:
     `BASE_EMAIL=your-username`
     `BASE_PASSWORD=your-password`
 
-## Running Tests
+## Running Tests Locally
 
 You can run the tests locally using the following command with standard PyTest HTML Report:
     `pytest --html=report.html`
