@@ -13,10 +13,12 @@ class OrderSubmittedPage(BasePage):
         "locator": (By.XPATH, '//*[@id="maincontent"]/div[3]/div/div[2]'),
         "text": ""
     }
-            
+
     def check_order_confirmation_title(self):
-        self.assert_text_in_element(self.PAGE_TITLE["locator"], self.PAGE_TITLE["text"])
+        self.assert_text_in_element(
+            self.PAGE_TITLE["locator"], self.PAGE_TITLE["text"])
 
     def check_order_number(self):
         regex = r"Your order number is: \d+."
-        self.assert_regex_in_element(self.ORDER_NUMBER_CONFIRMATION["locator"], regex)
+        self.assert_regex_in_element(
+            self.ORDER_NUMBER_CONFIRMATION["locator"], regex)

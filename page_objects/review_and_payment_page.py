@@ -18,7 +18,7 @@ class ReviewAndPaymentPage(BasePage):
     }
 
     def check_billing_checkbox_selected(self):
-        checkbox =  self.find_element(self.BILLING_CHECKBOX["locator"])
+        checkbox = self.find_element(self.BILLING_CHECKBOX["locator"])
         if not checkbox.is_selected():
             checkbox.click()
 
@@ -26,19 +26,15 @@ class ReviewAndPaymentPage(BasePage):
         # since there is no test requirement around this verification, just varifying that the total order amount is not $0.00
         regex = r"Subtotal \$\d+.\d+"
         summary_info = self.find_element(self.ORDER_SUMMARY["locator"]).text
-        match = re.search(regex, summary_info)  
+        match = re.search(regex, summary_info)
 
         if match:
-            total_amount = match.group(0)            
+            total_amount = match.group(0)
             if total_amount == "$0.00":
                 raise f"Review and payment total amount is $0.00: {total_amount}"
-            
-    def click_place_order(self):        
+
+    def click_place_order(self):
         self.assert_element(self.PLACE_ORDER_BTN["locator"])
-        self.assert_text_in_element(self.PLACE_ORDER_BTN["locator"], self.PLACE_ORDER_BTN["text"])
+        self.assert_text_in_element(
+            self.PLACE_ORDER_BTN["locator"], self.PLACE_ORDER_BTN["text"])
         self.click(self.PLACE_ORDER_BTN["locator"])
-
-
-        
-
-
