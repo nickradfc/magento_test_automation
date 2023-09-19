@@ -33,7 +33,8 @@ class HomePage(BasePage):
     }
 
     def check_welcome_message(self):
-        self.assert_element(self.WELCOME_MESSAGE["locator"])
+        self.find_element(self.WELCOME_MESSAGE["locator"])
+        self.is_visible(self.WELCOME_MESSAGE["locator"])
         self.assert_text_in_element(
             self.WELCOME_MESSAGE["locator"], self.WELCOME_MESSAGE["text"])
 

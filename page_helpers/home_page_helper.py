@@ -26,7 +26,7 @@ def select_apparel(driver, apparely_category):
         "Jackets": home_page.select_jacket_category,
     }
     category_map[apparely_category]()
-    home_page.assert_apparel_category_page_title(apparely_category)
+    home_page.assert_category_page_title(apparely_category)
 
 
 
